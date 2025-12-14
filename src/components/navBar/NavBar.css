@@ -1,0 +1,99 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.nav-logo a{
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-links{
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    cursor: pointer;
+}
+.nav-links a{
+    text-decoration: none;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+} 
+.nav-links a p{
+    font-size: 13px;
+    font-weight: 600;
+}
+.nav-links a hr{
+    width: 50%;
+    height: 3px;
+    background: gray;
+    border: none;
+    display: none;
+}
+a.active hr{
+    display: block;
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    cursor: pointer;
+}
+
+.nav-profile{
+    position: relative;
+}
+.nav-profile button{
+    border: none;
+    background-color: transparent;
+}
+
+.profile-drop-down{
+    position: absolute;
+    right: 0;
+    top: 16px;
+    display: none;
+    padding: 8px 0;
+}
+.nav-profile:hover .profile-drop-down{
+    display: block;
+}
+.drop-down-cnt{
+    background: white;
+    border: 2px solid gray;
+    border-radius: 8px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    color: gray;
+}
+.drop-down-cnt a:hover{
+    font-weight: 600;
+    color: black;
+}
+.nav-cart a {
+    position: relative;
+}
+.nav-cart a p{
+    position: absolute;
+    bottom: -6px;
+    right: -6px;
+    background-color: black;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px;
+    width: 18px;
+    height: 18px;
+}
