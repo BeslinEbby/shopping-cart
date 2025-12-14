@@ -97,3 +97,68 @@ a.active hr{
     width: 18px;
     height: 18px;
 }
+.nav-menu{
+    display: none;
+}
+.sidebar{
+    background-color: white;
+    color: white;
+    position: absolute;
+    position: fixed;
+    top: 12px;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+}
+.back-btn{
+    position: relative;
+    padding: 20px;
+}
+.back-btn button{
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 16px;
+    cursor: pointer;
+}
+.sidebar-cnt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 20px 0;
+}
+.sidebar-cnt a{
+    text-decoration: none;
+    color: gray;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    text-align: end;
+    padding: 12px 36px;
+}
+.sidebar-cnt a p{
+    font-size: 14   px;
+}
+
+.sidebar a.active{
+    background-color: black;
+}
+
+
+@media (max-width:800px){
+    .navbar{
+        padding: 12px 0;
+    }
+    .nav-logo img{
+        width: 100px;
+    }
+    .nav-links{
+        display: none;
+    }
+    .nav-menu{
+        display: block;
+    }
+    
+}
