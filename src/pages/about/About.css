@@ -1,0 +1,49 @@
+.about-title {
+   text-align: center;
+}
+.about-cnt {
+   display: flex;
+   justify-content: space-around;
+   gap: 20px;
+   margin: 24px 0;
+}
+
+.about-cnt img {
+   width: 40%;
+   object-fit: fill;
+}
+.about-cnt-info {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   padding: 40px 12px;
+}
+.choose-us-cnt {
+   display: flex;
+   gap: 20px;
+   padding: 0 32px;
+}
+.choose-us-info {
+   border: 1px solid rgba(128, 128, 128, 0.712);
+   padding: 12px;
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+.our-offer {
+   padding: 20px;
+}
+
+@media (max-width: 620px) {
+   .about-cnt {
+      flex-direction: column;
+   }
+   .about-cnt img {
+      width: 100%;
+      height: 320px;
+      padding: 0 20px;
+   }
+   .choose-us-cnt {
+      flex-direction: column;
+   }
+}
