@@ -3,6 +3,7 @@ import NavBar from "./components/navBar/NavBar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import ProductProvider from "./contexts/ProductContext";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
    return (
@@ -13,6 +14,7 @@ const App = () => {
                <Route path="/" element={<Home />} />
             </Routes>
          </ProductProvider>
+         <Footer/>
       </div>
    );
 };
