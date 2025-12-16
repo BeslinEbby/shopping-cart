@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { productContext } from '../../contexts/ProductContext'
+import { ProductContext } from '../../contexts/ProductContext'
+import Title from '../title/Title'
 import './LatestProducts.css'
 
 const  LatestProducts = () => {
 
   const [latestProducts, setLatestProducts]=useState([])
 
-  const {products}=useContext(productContext)
+  const {products}=useContext(ProductContext)
     
     useEffect(()=>{
         setLatestProducts(products.slice(0,10))
@@ -22,7 +23,7 @@ const  LatestProducts = () => {
               Cupiditate!
            </p>
         </div>
-        <ProductCard products={latestProducts} />
+        {/* <ProductCard products={latestProducts} /> */}
      </section>
   );
 }
