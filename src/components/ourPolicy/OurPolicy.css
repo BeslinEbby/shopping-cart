@@ -11,9 +11,10 @@
 }
 .ourpolicy-cnt p{
     color: gray;
+    text-align: center;
 }
 
-@media (max-width:800px) {
+@media (max-width:900px) {
     .ourpolicy{
         flex-direction: column;
         gap: 20px;
