@@ -1,0 +1,22 @@
+.ourpolicy{
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0;
+}
+.ourpolicy-cnt{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+.ourpolicy-cnt p{
+    color: gray;
+}
+
+@media (max-width:800px) {
+    .ourpolicy{
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+}
