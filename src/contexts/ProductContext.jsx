@@ -9,7 +9,6 @@ const ProductProvider=({children})=>{
         fetch("https://dummyjson.com/products?limit=0")
            .then((res) => res.json())
            .then((data)=>{
-            console.log(data)
             setProducts(data.products)
            })
     }
@@ -19,7 +18,7 @@ const ProductProvider=({children})=>{
     },[])
 
     return (
-        <ProductContext.Provider values={{products, setProducts}}>
+        <ProductContext.Provider value={{products, setProducts}}>
             {children}
         </ProductContext.Provider>
     )
