@@ -9,11 +9,10 @@ const Products = () => {
    const [filteredProducts, setFilteredProducts] = useState([]);
    const [showFilter, setshowFilter] = useState(false);
    const [categories, setCategories] = useState([]);
+   const [category, setCategory] = useState();
    const [brands, setBrands] = useState([]);
 
    const { products } = useContext(ProductContext);
-
-   
 
    useEffect(() => {
       setFilteredProducts(products);
