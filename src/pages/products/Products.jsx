@@ -9,14 +9,67 @@ const Products = () => {
    const [filteredProducts, setFilteredProducts] = useState([]);
    const [showFilter, setshowFilter] = useState(false);
    const [categories, setCategories] = useState([]);
-   const [category, setCategory] = useState();
    const [brands, setBrands] = useState([]);
+   const [category, setCategory] = useState("all");
+   const [selectedBrands, setSelectedBrands] = useState([]);
+   const [sortType, setSortType] = useState();
 
    const { products } = useContext(ProductContext);
+   
+
+
+   const toggleCategory = (e) => {
+      setCategory(e.target.value);
+      setSelectedBrands([]);
+   };
+
+   const toggleBrands = (e) => {
+      if (selectedBrands.includes(e.target.value)) {
+         setSelectedBrands((prev) => prev.filter((brand) => brand !== e.target.value));
+      } else {
+         setSelectedBrands((prev) => [...prev, e.target.value]);
+      }
+   };
+
+   const applyFilter = () => {
+      let productsCopy = [...products];
+      
+      if (category !== "all") {
+         productsCopy = productsCopy.filter((item) => category === item.category);
+      }
+      if (selectedBrands.length > 0) {
+         productsCopy = productsCopy.filter((item) => selectedBrands.includes(item.brand));
+      }
+      setFilteredProducts(productsCopy);
+   };
 
    useEffect(() => {
       setFilteredProducts(products);
    }, [products]);
+
+   useEffect(() => {
+      applyFilter();
+   }, [category, selectedBrands]);
+
+   useEffect(() => {
+      const sortProducts = () => {
+         let sortedProducts = [...filteredProducts];
+         switch (sortType) {
+            case "low-high":
+               sortedProducts.sort((a, b) => a.price - b.price);
+               break;
+            case "high-low":
+               sortedProducts.sort((a, b) => b.price - a.price);
+               break;
+            default:
+               applyFilter();
+               break;
+         }
+         setFilteredProducts(sortedProducts);
+      };
+
+      sortProducts();
+   }, [sortType]);
 
    useEffect(() => {
       const brandsWithDuplicates = products
