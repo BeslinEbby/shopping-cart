@@ -4,6 +4,7 @@ import { ProductContext } from "../../contexts/ProductContext";
 import ProductCard from "../../components/productCard/ProductCard";
 import Title from "../../components/title/Title";
 import "./Products.css";
+import { SearchContext } from "../../contexts/SearchContext";
 
 const Products = () => {
    const [filteredProducts, setFilteredProducts] = useState([]);
@@ -15,8 +16,9 @@ const Products = () => {
    const [sortType, setSortType] = useState();
 
    const { products } = useContext(ProductContext);
+   const { search } = useContext(SearchContext);
+   console.log(filteredProducts);
    
-
 
    const toggleCategory = (e) => {
       setCategory(e.target.value);
@@ -33,7 +35,14 @@ const Products = () => {
 
    const applyFilter = () => {
       let productsCopy = [...products];
-      
+
+      if (search.length>0) {
+         productsCopy = productsCopy.filter(
+            (item) =>
+               item.title.toLowerCase().includes(search.toLowerCase()) ||
+               item.tags.includes(search.toLowerCase())
+         );
+      }
       if (category !== "all") {
          productsCopy = productsCopy.filter((item) => category === item.category);
       }
@@ -49,7 +58,7 @@ const Products = () => {
 
    useEffect(() => {
       applyFilter();
-   }, [category, selectedBrands]);
+   }, [category, selectedBrands, search]);
 
    useEffect(() => {
       const sortProducts = () => {
