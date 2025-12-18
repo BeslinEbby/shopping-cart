@@ -5,6 +5,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import RatingStars from "../../components/RatingStars/RatingStars";
 import "./SelectedProduct.css";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
+import RelatedProducts from "../../components/relatedProducts/RelatedProducts";
 
 const SelectedProduct = () => {
    const [productData, setProductData] = useState();
@@ -83,6 +84,7 @@ const SelectedProduct = () => {
                   </div>
                )}
             </div>
+            <RelatedProducts category={productData.category}/>
          </section>
       )
    );

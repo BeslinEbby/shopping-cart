@@ -1,0 +1,10 @@
+.related-prod-title{
+    text-align: center;
+    margin: 12px 0;
+}
+.related-prod{
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 12px;
+}
