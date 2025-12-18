@@ -9,6 +9,7 @@ import Contact from "./pages/contact/Contact";
 import Products from "./pages/products/Products";
 import SearchProvider from "./contexts/SearchContext";
 import SearchBar from "./components/searchBar/SearchBar";
+import SelectedProduct from "./pages/selectedProduct/SelectedProduct";
 
 const App = () => {
    return (
@@ -19,6 +20,7 @@ const App = () => {
             <ProductProvider>
                <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/product/:productId" element={<SelectedProduct />} />
                   <Route path="/all" element={<Products />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
