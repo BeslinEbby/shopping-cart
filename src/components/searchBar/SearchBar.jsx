@@ -6,6 +6,11 @@ import { IoMdClose } from "react-icons/io";
 const SearchBar = () => {
    const { search, setSearch, showSearchBar, setShowSearchBar } = useContext(SearchContext);
 
+  const closeSearchBar=()=>{
+    setSearch("")
+    setShowSearchBar(false)
+  }
+
    return (
       showSearchBar && (
          <div className="searchbar">
@@ -15,7 +20,7 @@ const SearchBar = () => {
                type="text"
                placeholder="Search products ..."
             />
-            <IoMdClose onClick={() => setShowSearchBar(false)} />
+            <IoMdClose onClick={closeSearchBar} />
          </div>
       )
    );

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { ProductContext } from "../../contexts/ProductContext";
+import { SearchContext } from "../../contexts/SearchContext";
 import ProductCard from "../../components/productCard/ProductCard";
 import Title from "../../components/title/Title";
 import "./Products.css";
-import { SearchContext } from "../../contexts/SearchContext";
 
 const Products = () => {
    const [filteredProducts, setFilteredProducts] = useState([]);
@@ -16,9 +16,7 @@ const Products = () => {
    const [sortType, setSortType] = useState();
 
    const { products } = useContext(ProductContext);
-   const { search } = useContext(SearchContext);
-   console.log(filteredProducts);
-   
+   const { search, showSearchBar } = useContext(SearchContext);   
 
    const toggleCategory = (e) => {
       setCategory(e.target.value);
@@ -58,7 +56,7 @@ const Products = () => {
 
    useEffect(() => {
       applyFilter();
-   }, [category, selectedBrands, search]);
+   }, [category, selectedBrands, search, showSearchBar]);
 
    useEffect(() => {
       const sortProducts = () => {
