@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductContext";
 import { BsCurrencyDollar } from "react-icons/bs";
+import RatingStars from "../../components/RatingStars/RatingStars";
 import "./SelectedProduct.css";
 
 const SelectedProduct = () => {
@@ -39,6 +40,7 @@ const SelectedProduct = () => {
                </div>
                <div className="product-info">
                   <h2>{productData.title}</h2>
+                  <RatingStars rating={productData.rating}/>
                   <span>
                      <BsCurrencyDollar /> {productData.price}
                   </span>
