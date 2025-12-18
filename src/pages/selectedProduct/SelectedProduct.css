@@ -1,0 +1,122 @@
+.product{
+    padding: 20px 0;
+}
+.product-details{
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    height: 70vh;
+}
+.product-images{
+    width: 42%;
+    display: flex;
+    gap: 8px;
+}
+.all-images{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 40%;
+    overflow-y: scroll;
+}
+.all-images::-webkit-scrollbar{
+    display: none;
+}
+
+.all-images img{
+    border: 1px solid black;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.full-image img{
+    border: 1px solid black;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.product-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+}
+.product-info span{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 18px;
+}
+
+.product-info p{
+    font-size: 12px;
+}
+.product-info .cart-btn{
+    background: #000;
+    color: white;
+    padding: 12px;
+    max-width: 30%;
+    border: 0;
+    border-radius: 4px;
+    outline: 0;
+    margin: 12px 0;
+    cursor: pointer;
+}
+.policy{
+    color: rgba(128, 128, 128, 0.9);
+}
+
+.product-more{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.more-btns button{
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    cursor: pointer;
+}
+ .btn-bg{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 900px){
+    .product-details{
+        flex-direction: column;
+        height: 100%;
+    }
+    .product-images{
+        width: 100%;
+        height: 360px;
+    }
+    .all-images{
+        width: 25%;
+    }
+    .full-image{
+        flex: 1;
+    }
+}
+@media (max-width: 600px){
+    .product-images{
+        flex-direction: column;
+    }
+    .all-images{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 120px;
+    }
+    .all-images img{
+        min-width: 120px;
+    }
+    .full-image img{
+        height: 272px;
+    }
+}
