@@ -4,6 +4,7 @@ import { ProductContext } from "../../contexts/ProductContext";
 import { BsCurrencyDollar } from "react-icons/bs";
 import RatingStars from "../../components/RatingStars/RatingStars";
 import "./SelectedProduct.css";
+import ReviewCard from "../../components/reviewCard/ReviewCard";
 
 const SelectedProduct = () => {
    const [productData, setProductData] = useState();
@@ -73,7 +74,13 @@ const SelectedProduct = () => {
                      </p>
                   </div>
                ) : (
-                  <div>reviews</div>
+                  <div className="reviews">
+                     {
+                        productData.reviews.map((review)=>(
+                           <ReviewCard review={review}/>
+                        ))
+                     }
+                  </div>
                )}
             </div>
          </section>
