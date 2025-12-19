@@ -16,13 +16,13 @@ const Products = () => {
    const [sortType, setSortType] = useState();
 
    const { products } = useContext(ProductContext);
-   const { search, showSearchBar } = useContext(SearchContext);   
+   const { search, showSearchBar } = useContext(SearchContext);
 
-   const toggleCategory = (e) => {
-      setCategory(e.target.value);
+   const toggleCategory = (cat) => {
+      setCategory(cat);
       setSelectedBrands([]);
    };
-
+   
    const toggleBrands = (e) => {
       if (selectedBrands.includes(e.target.value)) {
          setSelectedBrands((prev) => prev.filter((brand) => brand !== e.target.value));
@@ -34,11 +34,10 @@ const Products = () => {
    const applyFilter = () => {
       let productsCopy = [...products];
 
-      if (search.length>0) {
+      if (search.length > 0) {
          productsCopy = productsCopy.filter(
             (item) =>
-               item.title.toLowerCase().includes(search.toLowerCase()) ||
-               item.tags.includes(search.toLowerCase())
+               item.title.toLowerCase().includes(search.toLowerCase()) || item.tags.includes(search.toLowerCase())
          );
       }
       if (category !== "all") {
@@ -46,6 +45,13 @@ const Products = () => {
       }
       if (selectedBrands.length > 0) {
          productsCopy = productsCopy.filter((item) => selectedBrands.includes(item.brand));
+      }
+      if (sortType === "low-high") {
+         productsCopy.sort((a, b) => a.price - b.price);
+      }
+
+      if (sortType === "high-low") {
+         productsCopy.sort((a, b) => b.price - a.price);
       }
       setFilteredProducts(productsCopy);
    };
@@ -56,27 +62,7 @@ const Products = () => {
 
    useEffect(() => {
       applyFilter();
-   }, [category, selectedBrands, search, showSearchBar]);
-
-   useEffect(() => {
-      const sortProducts = () => {
-         let sortedProducts = [...filteredProducts];
-         switch (sortType) {
-            case "low-high":
-               sortedProducts.sort((a, b) => a.price - b.price);
-               break;
-            case "high-low":
-               sortedProducts.sort((a, b) => b.price - a.price);
-               break;
-            default:
-               applyFilter();
-               break;
-         }
-         setFilteredProducts(sortedProducts);
-      };
-
-      sortProducts();
-   }, [sortType]);
+   }, [products, category, selectedBrands, search, showSearchBar, sortType]);
 
    useEffect(() => {
       const brandsWithDuplicates = products
@@ -87,7 +73,7 @@ const Products = () => {
          })
          .map((prod) => prod.brand);
       setBrands([...new Set(brandsWithDuplicates)]);
-   }, [category]);
+   }, [category, products]);
 
    useEffect(() => {
       const fetchCategories = () => {
@@ -112,12 +98,24 @@ const Products = () => {
                   <p>CATEGORIES</p>
                   <div className="filter-cnt">
                      <div className="filter-btn">
-                        <input type="radio" name="category" value={"all"} onChange={toggleCategory} />
+                        <input
+                           type="radio"
+                           name="category"
+                           value={"all"}
+                           checked={category == "all"}
+                           onChange={() => toggleCategory("all")}
+                        />
                         <label htmlFor="">All</label>
                      </div>
                      {categories.map((cat) => (
                         <div className="filter-btn" key={cat}>
-                           <input type="radio" name="category" value={cat} onChange={toggleCategory} />
+                           <input
+                              type="radio"
+                              name="category"
+                              checked={category == cat}
+                              value={cat}
+                              onChange={() => toggleCategory(cat)}
+                           />
                            <label htmlFor="">{cat}</label>
                         </div>
                      ))}
@@ -143,7 +141,7 @@ const Products = () => {
                )}
             </div>
          </div>
-         <div className="produts-cnt">
+         <div className="products-cnt">
             <div className="products-cnt-title">
                <Title text1={"ALL"} text2={"PRODUCTS"} />
                <p>
@@ -152,7 +150,7 @@ const Products = () => {
                </p>
             </div>
             <div className="products-sort">
-               <select className="sort" onChange={(e) => setSortType(e.target.value)}>
+               <select className="sort" value={sortType || "relevant"} onChange={(e) => setSortType(e.target.value)}>
                   <option value={"relevant"}>Sort By : Relevant</option>
                   <option value={"low-high"}>Sort By : Low To High</option>
                   <option value={"high-low"}>Sort By : High To Low</option>
@@ -160,7 +158,7 @@ const Products = () => {
             </div>
             <div className="products-sec">
                {filteredProducts.map((product) => (
-                  <ProductCard product={product} />
+                  <ProductCard key={product.id} product={product} />
                ))}
             </div>
          </div>
