@@ -3,30 +3,32 @@ import { useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductContext";
 import { BsCurrencyDollar } from "react-icons/bs";
 import RatingStars from "../../components/RatingStars/RatingStars";
-import "./SelectedProduct.css";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
 import RelatedProducts from "../../components/relatedProducts/RelatedProducts";
 import QuantitySelector from "../../components/quantityBtn/QuantitySelector";
+import { CartContext } from "../../contexts/CartContext";
+import "./SelectedProduct.css";
 
 const SelectedProduct = () => {
+
    const [productData, setProductData] = useState();
    const [image, setImage] = useState();
    const [change, setChange] = useState(true);
-   const [quantity, setQuantity] =useState(1)
 
    const { productId } = useParams();
 
    const { products } = useContext(ProductContext);
+   const { addToCart } = useContext(CartContext);
 
    useEffect(() => {
       const fetchProductData = () => {
          const product = products?.find((data) => data.id == productId);
-         console.log(product);
          setProductData(product);
          setImage(product?.images[0]);
       };
       fetchProductData();
    }, [products]);
+   
 
    return (
       productData && (
@@ -44,13 +46,15 @@ const SelectedProduct = () => {
                </div>
                <div className="product-info">
                   <h2>{productData.title}</h2>
-                  <RatingStars rating={productData.rating}/>
+                  <RatingStars rating={productData.rating} />
                   <span className="price">
                      <BsCurrencyDollar /> {productData.price}
                   </span>
                   <p>{productData.description}</p>
-                  <QuantitySelector quantity={quantity} setQuantity={setQuantity}/>
-                  <button className="cart-btn">ADD TO CART</button>
+                  <QuantitySelector/>
+                  <button onClick={() => addToCart(productData.id)} className="cart-btn">
+                     ADD TO CART
+                  </button>
                   <hr />
                   <div className="policy">
                      <p>100% Orginal Product</p>
@@ -79,15 +83,13 @@ const SelectedProduct = () => {
                   </div>
                ) : (
                   <div className="reviews">
-                     {
-                        productData.reviews.map((review)=>(
-                           <ReviewCard review={review}/>
-                        ))
-                     }
+                     {productData.reviews.map((review) => (
+                        <ReviewCard review={review} />
+                     ))}
                   </div>
                )}
             </div>
-            <RelatedProducts category={productData.category}/>
+            <RelatedProducts category={productData.category} />
          </section>
       )
    );

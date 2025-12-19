@@ -10,22 +10,25 @@ import Products from "./pages/products/Products";
 import SearchProvider from "./contexts/SearchContext";
 import SearchBar from "./components/searchBar/SearchBar";
 import SelectedProduct from "./pages/selectedProduct/SelectedProduct";
+import CartProvider from "./contexts/CartContext";
 
 const App = () => {
    return (
       <div className="app">
          <SearchProvider>
-            <NavBar />
-            <SearchBar/>
-            <ProductProvider>
-               <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/product/:productId" element={<SelectedProduct />} />
-                  <Route path="/all" element={<Products />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-               </Routes>
-            </ProductProvider>
+            <CartProvider>
+               <NavBar />
+               <SearchBar />
+               <ProductProvider>
+                  <Routes>
+                     <Route path="/" element={<Home />} />
+                     <Route path="/product/:productId" element={<SelectedProduct />} />
+                     <Route path="/all" element={<Products />} />
+                     <Route path="/about" element={<About />} />
+                     <Route path="/contact" element={<Contact />} />
+                  </Routes>
+               </ProductProvider>
+            </CartProvider>
          </SearchProvider>
          <Footer />
       </div>

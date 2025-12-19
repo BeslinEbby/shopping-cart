@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import "./QuantitySelector.css";
+import { CartContext } from "../../contexts/CartContext";
 
-const QuantitySelector = ({ quantity, setQuantity }) => {
+const QuantitySelector = () => {
+
+    const {quantity, setQuantity}=useContext(CartContext)
 
    return (
       <div className="qty-wrapper">
