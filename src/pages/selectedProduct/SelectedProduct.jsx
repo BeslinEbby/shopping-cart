@@ -6,11 +6,13 @@ import RatingStars from "../../components/RatingStars/RatingStars";
 import "./SelectedProduct.css";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
 import RelatedProducts from "../../components/relatedProducts/RelatedProducts";
+import QuantitySelector from "../../components/quantityBtn/QuantitySelector";
 
 const SelectedProduct = () => {
    const [productData, setProductData] = useState();
    const [image, setImage] = useState();
    const [change, setChange] = useState(true);
+   const [quantity, setQuantity] =useState(1)
 
    const { productId } = useParams();
 
@@ -43,10 +45,11 @@ const SelectedProduct = () => {
                <div className="product-info">
                   <h2>{productData.title}</h2>
                   <RatingStars rating={productData.rating}/>
-                  <span>
+                  <span className="price">
                      <BsCurrencyDollar /> {productData.price}
                   </span>
                   <p>{productData.description}</p>
+                  <QuantitySelector quantity={quantity} setQuantity={setQuantity}/>
                   <button className="cart-btn">ADD TO CART</button>
                   <hr />
                   <div className="policy">
