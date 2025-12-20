@@ -1,0 +1,71 @@
+.place-order{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.contact-details{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contact-details .input-sec{
+    display: flex;
+    gap: 12px;
+}
+.contact-details input{
+    padding: 12px;
+    border: 1px solid rgba(128, 128, 128, 0.584);
+    outline: 0;
+    width: 100%;
+}
+.payment-sec .cart-total{
+    width: 100%;
+}
+.pay-method-sec{
+    border: 1px solid rgba(128, 128, 128, 0.571);
+    padding: 12px 20px;
+}
+.pay-method-title{
+    font-size: 10px;
+
+}
+.pay-method-cnt{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.pay-method{
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-size: 12px;
+ cursor: pointer;
+}
+.pay-method span{
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgba(128, 128, 128, 0.71);
+    border-radius: 50%;
+}
+.pay-method span.method-bg{
+    background-color: green;
+}
+
+.place-order-btn button{
+    background: #000;
+    color: white;
+    padding: 12px 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    border: 0;
+    outline: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 720px){
+    .place-order{
+        flex-direction: column;
+    }
+}
