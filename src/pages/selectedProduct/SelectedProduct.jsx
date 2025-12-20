@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductContext";
-import { BsCurrencyDollar } from "react-icons/bs";
 import RatingStars from "../../components/RatingStars/RatingStars";
 import ReviewCard from "../../components/reviewCard/ReviewCard";
 import RelatedProducts from "../../components/relatedProducts/RelatedProducts";
-import QuantitySelector from "../../components/quantityBtn/QuantitySelector";
 import { CartContext } from "../../contexts/CartContext";
+import Price from "../../components/price/Price";
 import "./SelectedProduct.css";
 
 const SelectedProduct = () => {
@@ -18,7 +17,7 @@ const SelectedProduct = () => {
    const { productId } = useParams();
 
    const { products } = useContext(ProductContext);
-   const { addToCart } = useContext(CartContext);
+   const { addToCart  } = useContext(CartContext);
 
    useEffect(() => {
       const fetchProductData = () => {
@@ -47,12 +46,9 @@ const SelectedProduct = () => {
                <div className="product-info">
                   <h2>{productData.title}</h2>
                   <RatingStars rating={productData.rating} />
-                  <span className="price">
-                     <BsCurrencyDollar /> {productData.price}
-                  </span>
+                  <Price price={productData.price} />
                   <p>{productData.description}</p>
-                  <QuantitySelector/>
-                  <button onClick={() => addToCart(productData.id)} className="cart-btn">
+                  <button onClick={() => addToCart(productData.id, productData.price)} className="cart-btn">
                      ADD TO CART
                   </button>
                   <hr />
