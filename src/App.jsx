@@ -11,6 +11,7 @@ import SearchProvider from "./contexts/SearchContext";
 import SearchBar from "./components/searchBar/SearchBar";
 import SelectedProduct from "./pages/selectedProduct/SelectedProduct";
 import CartProvider from "./contexts/CartContext";
+import Cart from "./pages/cart/Cart";
 
 const App = () => {
    return (
@@ -26,6 +27,7 @@ const App = () => {
                      <Route path="/all" element={<Products />} />
                      <Route path="/about" element={<About />} />
                      <Route path="/contact" element={<Contact />} />
+                     <Route path="/cart" element={<Cart />} />
                   </Routes>
                </ProductProvider>
             </CartProvider>
