@@ -1,0 +1,19 @@
+.cart-total{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    margin-left: auto;
+    border: 1px solid gray;
+    border-radius: 6px;
+    width: fit-content;
+    padding: 16px 28px;
+}
+.cart-total-title{
+    font-size: 12px;
+}
+.cart-total-cnt .total-info{
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 16px 0;
+}
