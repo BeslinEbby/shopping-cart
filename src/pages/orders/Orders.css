@@ -1,0 +1,57 @@
+.order-title{
+    text-align: center;
+}
+.order-cnt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+.order-prod-info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    flex-basis: 50%;
+    cursor: pointer;
+}
+.order-prod-info img{
+    width: 80px;
+    object-fit: cover;
+
+}
+.ship-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.ship-info p:first-child{
+    background: green;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.order-track-btn{
+    background-color: black;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.emptyOrders{
+    height: 60vh;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:600px){
+    .order-cnt{
+        flex-direction: column;
+        gap: 12px;
+    }
+}
