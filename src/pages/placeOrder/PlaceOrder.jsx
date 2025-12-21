@@ -33,7 +33,8 @@ const PlaceOrder = () => {
       }));
    };
 
-   const placeOrder = () => {
+   const placeOrder = (e) => {
+    e.preventDefault()
       const orderInfo = {
          address: address,
          order: cartData,
