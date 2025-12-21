@@ -1,6 +1,7 @@
 .footer-sec{
     display: flex;
     justify-content: space-between;
+    gap: 32px;
     margin-top: 24px;
     padding: 20px 40px;
 }
