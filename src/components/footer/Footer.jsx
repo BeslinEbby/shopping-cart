@@ -19,8 +19,9 @@ const Footer = () => {
           <p>COMPANY</p>
           <ul>
             <li><Link to={"/"}>Home</Link></li>
-            <li><Link to={"/products"}>Products</Link></li>
+            <li><Link to={"/all"}>Products</Link></li>
             <li><Link to={"/about"}>About Us</Link></li>
+            <li><Link to={"/contact"}>Contact Us</Link></li>
             <li><Link to={"#"}>Privacy Policy</Link></li>
           </ul>
         </div>
