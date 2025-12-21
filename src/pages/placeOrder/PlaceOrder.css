@@ -1,4 +1,4 @@
-.place-order{
+.place-order form{
     display: flex;
     justify-content: space-around;
     gap: 20px;
@@ -45,11 +45,12 @@
 .pay-method span{
     width: 12px;
     height: 12px;
-    border: 1px solid rgba(128, 128, 128, 0.71);
+    border: 2px solid rgba(128, 128, 128, 0.71);
     border-radius: 50%;
 }
 .pay-method span.method-bg{
     background-color: green;
+    border: 1px solid black;
 }
 
 .place-order-btn button{
@@ -65,7 +66,7 @@
 }
 
 @media (max-width: 720px){
-    .place-order{
+    .place-order form{
         flex-direction: column;
     }
 }
