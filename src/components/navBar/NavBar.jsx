@@ -59,7 +59,7 @@ const NavBar = () => {
                   <div className="drop-down-cnt">
                      <Link to={"/profile"}>My Profile</Link>
                      <Link to={"/orders"}>Orders</Link>
-                     <Link to={"/login"}>LogIn</Link>
+                     <Link to={"/"}>LogOut</Link>
                   </div>
                </div>
             </div>
