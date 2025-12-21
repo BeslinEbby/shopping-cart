@@ -13,6 +13,8 @@ import SelectedProduct from "./pages/selectedProduct/SelectedProduct";
 import CartProvider from "./contexts/CartContext";
 import Cart from "./pages/cart/Cart";
 import PlaceOrder from "./pages/placeOrder/PlaceOrder";
+import Orders from "./pages/orders/Orders";
+import OrderProvider from "./contexts/OrderContext";
 
 const App = () => {
    return (
@@ -21,17 +23,20 @@ const App = () => {
             <CartProvider>
                <NavBar />
                <SearchBar />
-               <ProductProvider>
-                  <Routes>
-                     <Route path="/" element={<Home />} />
-                     <Route path="/product/:productId" element={<SelectedProduct />} />
-                     <Route path="/all" element={<Products />} />
-                     <Route path="/about" element={<About />} />
-                     <Route path="/contact" element={<Contact />} />
-                     <Route path="/cart" element={<Cart />} />
-                     <Route path="/place-order" element={<PlaceOrder />} />
-                  </Routes>
-               </ProductProvider>
+               <OrderProvider>
+                  <ProductProvider>
+                     <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/product/:productId" element={<SelectedProduct />} />
+                        <Route path="/all" element={<Products />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route path="/place-order" element={<PlaceOrder />} />
+                        <Route path="/orders" element={<Orders />} />
+                     </Routes>
+                  </ProductProvider>
+               </OrderProvider>
             </CartProvider>
          </SearchProvider>
          <Footer />
