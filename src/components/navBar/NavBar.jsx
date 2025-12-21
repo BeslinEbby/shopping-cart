@@ -85,7 +85,7 @@ const NavBar = () => {
                      <p>HOME</p>
                   </NavLink>
                   <NavLink onClick={() => setVisibleSideBar(false)} to={"/collection"}>
-                     <p>COLLECTION</p>
+                     <p>PRODUCTS</p>
                   </NavLink>
                   <NavLink onClick={() => setVisibleSideBar(false)} to={"/about"}>
                      <p>ABOUT</p>
