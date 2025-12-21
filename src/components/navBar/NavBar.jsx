@@ -6,12 +6,15 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
 import { SearchContext } from "../../contexts/SearchContext";
+import { CartContext } from "../../contexts/CartContext";
 import "./NavBar.css";
 
 const NavBar = () => {
    const [visibleSideBar, setVisibleSideBar] = useState(false);
    const [visibleSearch, setVisibleSearch] = useState(false);
+
    const { setShowSearchBar } = useContext(SearchContext);
+   const { getCartCount } = useContext(CartContext);
 
    const location = useLocation();
 
@@ -63,7 +66,7 @@ const NavBar = () => {
             <div className="nav-cart">
                <Link to={"/cart"}>
                   <FiShoppingCart fontSize={"20px"} />
-                  <p>0</p>
+                  <p>{getCartCount()}</p>
                </Link>
             </div>
             <div className="nav-menu" onClick={() => setVisibleSideBar(true)}>
