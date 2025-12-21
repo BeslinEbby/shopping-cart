@@ -26,7 +26,7 @@ const SelectedProduct = () => {
          setImage(product?.images[0]);
       };
       fetchProductData();
-   }, [products]);
+   }, [products, productId]);
    
 
    return (

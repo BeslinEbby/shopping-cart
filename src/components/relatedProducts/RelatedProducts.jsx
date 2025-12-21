@@ -14,7 +14,7 @@ const RelatedProducts = ({category}) => {
         if(products.length>0){
              setRelatedProd(products.filter((item)=>category===item.category))
         }
-    },[products])
+    },[products, category])
 
   return (
      <div className="related">
@@ -23,7 +23,7 @@ const RelatedProducts = ({category}) => {
         </div>
         <div className="related-prod">
            {relatedProd.map((prod) => (
-              <ProductCard product={prod} />
+              <ProductCard key={prod.id} product={prod} />
            ))}
         </div>
      </div>
