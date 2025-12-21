@@ -70,7 +70,7 @@ const Orders = () => {
             )
          ) : (
             <div className="emptyOrders">
-               <span>Your Cart Is Empty !</span>
+               <span>You Have No Orders !</span>
             </div>
          )}
       </section>
