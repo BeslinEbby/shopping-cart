@@ -15,7 +15,7 @@ const Contact = () => {
         <div className='contact-info'>
           <h4>Our Store</h4>
           <p>54321 Willis station <br /> suite 350, Washington DC ,USA</p>
-          <p>Tel : 12345678 <br /> Email: admin@dummy.com</p>
+          <p>Tel : 12345678 <br /> Email: contact@dummy.com</p>
           <p>Careers at dummy</p>
           <p>Learn more about our Team Job Openings</p>
           <button>Explore Jobs</button>
