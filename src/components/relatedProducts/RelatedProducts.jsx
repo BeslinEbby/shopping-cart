@@ -4,7 +4,7 @@ import { ProductContext } from '../../contexts/ProductContext'
 import ProductCard from '../productCard/ProductCard'
 import './RelatedProducts.css'
 
-const RelatedProducts = ({category}) => {
+const RelatedProducts = ({category, productId}) => {
   
   const [relatedProd,setRelatedProd]=useState([])
   
@@ -12,9 +12,12 @@ const RelatedProducts = ({category}) => {
 
     useEffect(()=>{
         if(products.length>0){
-             setRelatedProd(products.filter((item)=>category===item.category))
+             setRelatedProd(products.filter((item)=>category===item.category && item.id !== productId))
         }
     },[products, category])
+
+    console.log(relatedProd);
+    
 
   return (
      <div className="related">

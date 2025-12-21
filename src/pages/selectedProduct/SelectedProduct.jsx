@@ -85,7 +85,7 @@ const SelectedProduct = () => {
                   </div>
                )}
             </div>
-            <RelatedProducts category={productData.category} />
+            <RelatedProducts category={productData.category} productId={productData.id}/>
          </section>
       )
    );
